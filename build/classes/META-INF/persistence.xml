@@ -8,7 +8,7 @@
     <class>bean.Stagiaire</class>
     <class>bean.Tache</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/stagaires?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/ihmstagaires?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value=""/>

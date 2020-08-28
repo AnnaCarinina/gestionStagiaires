@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="498.0" prefWidth="868.0" style="-fx-background-color: #4f4f51;" styleClass="mainFxmlClass"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LoginEncaController">
+            
+   <children>
+      <Pane fx:id="paneNext" prefHeight="613.0" prefWidth="889.0">
+         <children>
+                   <Pane prefHeight="613.0" prefWidth="889.0" style="-fx-background-color: #D6D6D6;">
+         <children>
+            <Label layoutX="291.0" layoutY="35.0" text="Informations générales" textFill="#2c2b30">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nom" layoutX="165.0" layoutY="118.0" prefHeight="40.0" promptText="Votre nom">
+               <font>
+                  <Font name="Bookshelf Symbol 7" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tel" layoutX="165.0" layoutY="282.0" prefHeight="40.0" promptText="Votre téléphone">
+               <font>
+                  <Font name="Bookshelf Symbol 7" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="prenom" layoutX="165.0" layoutY="202.0" prefHeight="40.0" promptText="Votre prénom">
+               <font>
+                  <Font name="Bookshelf Symbol 7" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="mail" layoutX="165.0" layoutY="362.0" prefHeight="40.0" promptText="Votre mail">
+               <font>
+                  <Font name="Bookshelf Symbol 7" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="adresse" alignment="TOP_LEFT" layoutX="539.0" layoutY="118.0" prefHeight="124.0" prefWidth="204.0" promptText="Votre adresse">
+               <font>
+                  <Font name="Bookshelf Symbol 7" size="16.0" />
+               </font>
+            </TextField>
+            <ComboBox fx:id="departement" layoutX="542.0" layoutY="282.0" prefHeight="40.0" prefWidth="204.0" promptText="Département" visibleRowCount="20" />
+            <RadioButton fx:id="female" layoutX="542.0" layoutY="370.0" mnemonicParsing="false" text="Female">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="male" layoutX="673.0" layoutY="370.0" mnemonicParsing="false" text="Male">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </RadioButton>
+            <Separator layoutX="397.0" layoutY="118.0" orientation="VERTICAL" prefHeight="302.0" prefWidth="7.0" />
+            <Button fx:id="annuler" layoutX="422.0" layoutY="499.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="41.0" prefWidth="129.0" style="-fx-background-color: #800023;" text="Annuler" textFill="WHITE">
+               <font>
+                  <Font name="Bookshelf Symbol 7" size="17.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="back1" fitHeight="30.0" fitWidth="55.0" layoutX="23.0" layoutY="14.0" onMouseClicked="#handleMouseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/back.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="243.0" layoutY="499.0" mnemonicParsing="false" onAction="#ajout" prefHeight="41.0" prefWidth="129.0" style="-fx-background-color: #14999c;" text="Inscription" textFill="WHITE">
+               <font>
+                  <Font name="Bookshelf Symbol 7" size="17.0" />
+               </font>
+            </Button>
+            <Label layoutX="65.0" layoutY="118.0" prefHeight="31.0" prefWidth="100.0" text="Nom:">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="413.0" layoutY="118.0" prefHeight="31.0" prefWidth="100.0" text="Adresse:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="207.0" prefHeight="31.0" prefWidth="100.0" text="Prénom:">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="286.0" prefHeight="31.0" prefWidth="100.0" text="Téléphone:">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="367.0" prefHeight="31.0" prefWidth="100.0" text="Mail:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="413.0" layoutY="286.0" prefHeight="31.0" prefWidth="129.0" text="Département:">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="413.0" layoutY="367.0" prefHeight="31.0" prefWidth="100.0" text="Genre:">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="paneSignUp" layoutX="-6.0" prefHeight="613.0" prefWidth="896.0" style="-fx-background-color: #4f4f51;">
+         <children>
+            <Pane prefHeight="603.0" prefWidth="431.0">
+               <children>
+                  <ImageView fitHeight="227.0" fitWidth="278.0" layoutX="96.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pictures/stagiair.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="signUp1" layoutX="57.0" layoutY="481.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="171.0" style="-fx-background-color: #f58f7c;" text="Se connecter">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="57.0" layoutY="448.0" prefHeight="27.0" prefWidth="253.0" text="Vous avez déjà  un compte? " textFill="#d6d6d6">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="57.0" layoutY="83.0" text="GESTION DES STAGIAIRES" textFill="#d6d6d6">
+                     <font>
+                        <Font name="Constantia Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="431.0" layoutY="58.0" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #D6D6D6;">
+               <children>
+                  <TextField fx:id="user" layoutX="73.0" layoutY="156.0" prefHeight="47.0" prefWidth="260.0" promptText="         Entrez votre nom d'utilisateur" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="pass" layoutX="73.0" layoutY="227.0" prefHeight="47.0" prefWidth="260.0" promptText="           Entrez votre mot de passe" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </PasswordField>
+                  <Button fx:id="next" layoutX="112.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="45.0" prefWidth="184.0" style="-fx-background-color: #f58f7c;" text="suivant">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="137.0" layoutY="70.0" text="s'inscrire">
+                     <font>
+                        <Font name="System Bold Italic" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="paneSignIn" layoutX="-1.0" prefHeight="613.0" prefWidth="889.0" style="-fx-background-color: #4f4f51;">
+         <children>
+            <Pane prefHeight="603.0" prefWidth="431.0">
+               <children>
+                  <ImageView fitHeight="227.0" fitWidth="278.0" layoutX="96.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pictures/stagiair.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="inscription" layoutX="57.0" layoutY="481.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="171.0" style="-fx-background-color: #f58f7c;" text="S'inscrire">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="57.0" layoutY="448.0" prefHeight="27.0" prefWidth="253.0" text="Vous n'avez pas de compte? " textFill="#d6d6d6">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="57.0" layoutY="83.0" text="GESTION DES STAGIAIRES" textFill="#d6d6d6">
+                     <font>
+                        <Font name="Constantia Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+                     <Pane layoutX="431.0" layoutY="58.0" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #D6D6D6;">
+         <children>
+            <TextField fx:id="utilisateur" layoutX="73.0" layoutY="156.0" prefHeight="47.0" prefWidth="260.0" promptText="         Entrez votre nom d'utilisateur" style="-fx-background-color: #ffffff;">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="pwd" layoutX="73.0" layoutY="227.0" prefHeight="47.0" prefWidth="260.0" promptText="           Entrez votre mot de passe" style="-fx-background-color: #ffffff;">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </PasswordField>
+            <Button layoutX="112.0" layoutY="301.0" mnemonicParsing="false" onAction="#seConnect" prefHeight="40.0" prefWidth="184.0" style="-fx-background-color: #f58f7c;" text="se connecter">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="122.0" layoutY="80.0" text="Se connecter">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+           
+                     </children>
+      </Pane>
+   </children>
+</AnchorPane>

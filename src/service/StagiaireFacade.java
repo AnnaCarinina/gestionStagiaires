@@ -4,6 +4,7 @@ import java.util.List;
 
 import bean.Departement;
 import bean.Encadrant;
+
 import bean.Stagee;
 import bean.Stagiaire;
 import util.SearchUtil;
@@ -45,5 +46,6 @@ public class StagiaireFacade extends AbstractFacade<Stagiaire> {
     public List<Stagiaire> findByEnca(Encadrant encadrant) {
         return getEntityManager().createQuery("SELECT s FROM Stagiaire s WHERE s.encadrant.login= '"+encadrant.getLogin()+"'").getResultList();
     }
+
     
 }
