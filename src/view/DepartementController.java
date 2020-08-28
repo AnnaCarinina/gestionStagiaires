@@ -17,10 +17,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import service.DepartementFacade;
 
 /**
@@ -33,6 +35,39 @@ public class DepartementController implements Initializable {
 
     @FXML
     private TextField nomajout;
+        @FXML
+    private Button stage;
+    
+    @FXML
+    private Button stagiaire;
+    
+        @FXML
+    private Button encadrant;
+        
+    @FXML
+    private Button tache;
+    
+        
+    @FXML 
+    private Pane paneAdd;
+    
+        @FXML 
+    private Pane paneRecherche;
+        
+            @FXML
+    private Button seDeconnecter;
+    
+    @FXML 
+    private Pane paneEdit;
+    
+    @FXML
+    private Button rechercher;
+    
+        @FXML
+    private Button ajouter;
+        
+            @FXML
+    private Button editer;
 
     @FXML
     private TextField nomRech;
@@ -266,5 +301,36 @@ public class DepartementController implements Initializable {
     public void setDepartementPane(TabPane departementPane) {
         this.departementPane = departementPane;
     }  
+        @FXML
+    private void handleActionButton(ActionEvent event) throws IOException{
+        
+        if(event.getSource().equals(tache)){
+            Acceuil.forward(event, "Tache.fxml", this.getClass());
+        }
+        
+        if(event.getSource().equals(stagiaire)){
+             Acceuil.forward(event, "Stagiaire.fxml", this.getClass());
+        }
+               if(event.getSource().equals(stage)){
+             Acceuil.forward(event, "Stage.fxml", this.getClass());
+        }
+                      if(event.getSource().equals(encadrant)){
+             Acceuil.forward(event, "Encadrant.fxml", this.getClass());
+        }
+         if(event.getSource().equals(rechercher)){
+            paneRecherche.toFront();
+        }
+         
+          if(event.getSource().equals(ajouter)){
+            paneAdd.toFront();
+        }
+          
+           if(event.getSource().equals(editer)){
+            paneEdit.toFront();
+        }
+        if(event.getSource().equals(seDeconnecter)){
+           Acceuil.forward(event, "welcome.fxml", this.getClass());
+        }
+    }
     
 }

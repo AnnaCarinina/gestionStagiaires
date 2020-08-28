@@ -18,32 +18,32 @@
                <children>
                   <Pane layoutX="-8.0" prefHeight="602.0" prefWidth="249.0" style="-fx-background-color: #4f4f51; -fx-background-radius: 0 140 00;">
                      <children>
-                        <Button fx:id="stage" layoutX="5.0" layoutY="110.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="STAGE" textFill="#f58f7c">
+                        <Button fx:id="stage" layoutX="5.0" layoutY="110.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="239.0" onAction="#handleActionButton" style="-fx-background-color: #4f4f51;" text="STAGE" textFill="#f58f7c">
                            <font>
                               <Font name="System Italic" size="22.0" />
                            </font>
                         </Button>
-                        <Button fx:id="stagiaire" layoutX="5.0" layoutY="173.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="STAGIAIRE" textFill="#f58f7c">
+                        <Button fx:id="stagiaire" layoutX="5.0" layoutY="173.0" mnemonicParsing="false" prefHeight="71.0" onAction="#handleActionButton" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="STAGIAIRE" textFill="#f58f7c">
                            <font>
                               <Font name="System Italic" size="22.0" />
                            </font>
                         </Button>
-                        <Button fx:id="tache" layoutX="5.0" layoutY="244.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="TACHE" textFill="#f58f7c">
+                        <Button fx:id="tache" layoutX="5.0" layoutY="244.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="69.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="TACHE" textFill="#f58f7c">
                            <font>
                               <Font name="System Italic" size="22.0" />
                            </font>
                         </Button>
-                         <Button fx:id="encadrant" layoutX="5.0" layoutY="314.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="ENCADRANT" textFill="#f58f7c">
+                         <Button fx:id="encadrant" layoutX="5.0" layoutY="314.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="239.0" onAction="#handleActionButton" style="-fx-background-color: #4f4f51;" text="ENCADRANT" textFill="#f58f7c">
                            <font>
                               <Font name="System Italic" size="22.0" />
                            </font>
                         </Button>
-                          <Button fx:id="departement" layoutX="5.0" layoutY="378.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="DEPARTEMENT" textFill="#f58f7c">
+                          <Button fx:id="departement" layoutX="5.0" layoutY="378.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="239.0" onAction="#handleActionButton" style="-fx-background-color: #4f4f51;" text="DEPARTEMENT" textFill="#f58f7c">
                            <font>
                               <Font name="System Italic" size="22.0" />
                            </font>
                         </Button>
-                        <Button fx:id="seDeconnecter" layoutX="5.0" layoutY="432.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="Se déconnecter" textFill="#f58f7c">
+                        <Button fx:id="seDeconnecter" layoutX="5.0" layoutY="432.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="239.0" onAction="#handleActionButton" style="-fx-background-color: #4f4f51;" text="Se déconnecter" textFill="#f58f7c">
                            <font>
                               <Font name="System Italic" size="22.0" />
                            </font>
@@ -74,15 +74,15 @@
                         </Pane>
                         <HBox prefHeight="44.0" prefWidth="564.0">
                            <children>
-                              <Button fx:id="ajouter" mnemonicParsing="false" prefHeight="58.0" prefWidth="188.0" style="-fx-background-color: #F58F7C;" text="Ajouter Departement" textFill="#4f4f51">
+                              <Button fx:id="ajouter" mnemonicParsing="false" prefHeight="58.0" prefWidth="188.0" onAction="#handleActionButton"  style="-fx-background-color: #F58F7C;" text="Ajouter Departement" textFill="#4f4f51">
                                  <font>
                                     <Font size="15.0" />
                                  </font></Button>
-                              <Button fx:id="rechercher" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="188.0" style="-fx-background-color: #F58F7C;" text="Rechercher Departement" textFill="#4f4f51">
+                              <Button fx:id="rechercher" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleActionButton"  prefHeight="58.0" prefWidth="188.0" style="-fx-background-color: #F58F7C;" text="Rechercher Departement" textFill="#4f4f51">
                                  <font>
                                     <Font size="15.0" />
                                  </font></Button>
-                              <Button fx:id="editer" layoutX="198.0" layoutY="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="188.0" style="-fx-background-color: #F58F7C;" text="Editer Departement" textFill="#4f4f51">
+                              <Button fx:id="editer" layoutX="198.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleActionButton"  prefHeight="58.0" prefWidth="188.0" style="-fx-background-color: #F58F7C;" text="Editer Departement" textFill="#4f4f51">
                                  <font>
                                     <Font size="15.0" />
                                  </font></Button>
