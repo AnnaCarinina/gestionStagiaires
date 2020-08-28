@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.StageViewController">
+   <children>
+      <BorderPane prefHeight="602.0" prefWidth="800.0">
+         <left>
+            <Pane prefHeight="609.0" prefWidth="242.0" style="-fx-background-color: #D6D6D6;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="602.0" prefWidth="239.0" style="-fx-background-color: #4f4f51; -fx-background-radius: 0 160 00;">
+                     <children>
+                        <Button fx:id="stage" layoutY="176.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="STAGE" textFill="#f58f7c">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="stagiaire" layoutY="243.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="71.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="STAGIAIRE" textFill="#f58f7c">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="tache" layoutY="301.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="88.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="TACHE" textFill="#f58f7c">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="seDeconnecter" layoutX="1.0" layoutY="381.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="76.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="Se déconnecter" textFill="#f58f7c">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children></Pane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane fx:id="paneStage" prefHeight="602.0" prefWidth="559.0">
+                     <children>
+                        <HBox prefHeight="44.0" prefWidth="564.0">
+                           <children>
+                              <Button fx:id="ajouter" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="58.0" prefWidth="188.0" style="-fx-background-color: #F58F7C;" text="Ajouter Stage" textFill="#4f4f51">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font></Button>
+                              <Button fx:id="rechercher" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="58.0" prefWidth="188.0" style="-fx-background-color: #F58F7C;" text="Rechercher Stage" textFill="#4f4f51">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font></Button>
+                              <Button fx:id="editer" layoutX="198.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="58.0" prefWidth="188.0" style="-fx-background-color: #F58F7C;" text="Editer Stage" textFill="#4f4f51">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font></Button>
+                           </children>
+                        </HBox>
+                        <Pane fx:id="paneRecherche" layoutX="1.0" layoutY="44.0" prefHeight="559.0" prefWidth="563.0" style="-fx-background-color: #D6D6D6;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="13.0" text="Nom:">
+                                 <font>
+                                    <Font name="System Italic" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nomRech" layoutX="49.0" layoutY="11.0" prefHeight="25.0" prefWidth="108.0" />
+                              <Label layoutX="164.0" layoutY="13.0" text="Budget Max:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="364.0" layoutY="15.0" text="Budget Min:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="stageTableView" layoutX="33.0" layoutY="143.0" prefHeight="181.0" prefWidth="498.0" />
+                              <Label layoutX="60.0" layoutY="64.0" text="Encadrant:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="encadrantComboBoxRech" layoutX="134.0" layoutY="61.0" prefHeight="25.0" prefWidth="108.0" />
+                              <Label layoutX="295.0" layoutY="64.0" text="Departement:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="departementComboBoxRech" layoutX="385.0" layoutY="61.0" prefHeight="25.0" prefWidth="108.0" />
+                              <Label layoutX="92.0" layoutY="332.0" text="Les Taches:">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="tacheTableView" layoutX="1.0" layoutY="363.0" prefHeight="108.0" prefWidth="267.0" AnchorPane.bottomAnchor="88.0" />
+                              <Button layoutX="57.0" layoutY="481.0" mnemonicParsing="false" onAction="#editTache" prefHeight="30.0" prefWidth="91.0" style="-fx-background-color: #f58f7c;" text="Editer" textFill="WHITE" />
+                              <Button layoutX="164.0" layoutY="480.0" mnemonicParsing="false" onAction="#supprTache" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: #f58f7c;" text="Supprimer" textFill="WHITE" />
+                              <TableView fx:id="stagiaireTableView" layoutX="282.0" layoutY="365.0" prefHeight="105.0" prefWidth="278.0" AnchorPane.bottomAnchor="89.0" />
+                              <Button layoutX="316.0" layoutY="481.0" mnemonicParsing="false" onAction="#editStagiaire" prefHeight="31.0" prefWidth="91.0" style="-fx-background-color: #f58f7c;" text="Editer" textFill="WHITE" />
+                              <Button layoutX="437.0" layoutY="480.0" mnemonicParsing="false" onAction="#supprStagiaire" prefHeight="31.0" prefWidth="90.0" style="-fx-background-color: #f58f7c;" text="Supprimer" textFill="WHITE" />
+                              <Label layoutX="361.0" layoutY="332.0" text="Les Stagiaires:">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="210.0" layoutY="102.0" mnemonicParsing="false" onAction="#recherch" prefHeight="25.0" prefWidth="127.0" style="-fx-background-color: #f58f7c;" text="Rechercher" textFill="#f5f5f5">
+                                 <font>
+                                    <Font name="Bookshelf Symbol 7" size="16.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="budgetMin" layoutX="449.0" layoutY="12.0" prefHeight="25.0" prefWidth="108.0" />
+                              <TextField fx:id="budgetMax" layoutX="246.0" layoutY="12.0" prefHeight="25.0" prefWidth="108.0" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="paneEdit" layoutX="1.0" layoutY="44.0" prefHeight="559.0" prefWidth="563.0" style="-fx-background-color: #D6D6D6;">
+                           <children>
+                              <Label layoutX="94.0" layoutY="40.0" prefHeight="30.0" prefWidth="129.0" text="Nom Stage:">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nomed" layoutX="269.0" layoutY="37.0" prefHeight="36.0" prefWidth="200.0" promptText="Nom de Stage" />
+                              <Label layoutX="94.0" layoutY="105.0" text="Date Debut:">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="dateDebEd" layoutX="269.0" layoutY="102.0" prefHeight="36.0" prefWidth="205.0" promptText="JJ/MM/AAAA" />
+                              <Label layoutX="94.0" layoutY="177.0" text="Date Fin:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="dateFinEd" layoutX="269.0" layoutY="174.0" prefHeight="36.0" prefWidth="205.0" promptText="JJ/MM/AAAA" />
+                              <Label layoutX="94.0" layoutY="321.0" text="Encadrant:">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="encadrantComboBoxEd" layoutX="269.0" layoutY="318.0" prefHeight="36.0" prefWidth="205.0" promptText="Select Encadrant" />
+                              <Label layoutX="94.0" layoutY="400.0" text="Departement:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="departementComboBoxEd" layoutX="269.0" layoutY="397.0" prefHeight="36.0" prefWidth="205.0" promptText="Select Departement" />
+                              <Button layoutX="214.0" layoutY="473.0" mnemonicParsing="false" onAction="#edit" prefHeight="31.0" prefWidth="136.0" style="-fx-background-color: #f58f7c;" text="Editer" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="94.0" layoutY="247.0" text="Budget:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="budgetEd" layoutX="269.0" layoutY="241.0" prefHeight="36.0" prefWidth="205.0" promptText="Budget" />
+                           </children>
+                        </Pane>
+                        <Pane fx:id="paneAdd" layoutX="1.0" layoutY="44.0" prefHeight="559.0" prefWidth="563.0" style="-fx-background-color: #D6D6D6;">
+                           <children>
+                              <Label layoutX="94.0" layoutY="28.0" prefHeight="23.0" prefWidth="122.0" text="Nom Stage:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nom" layoutX="223.0" layoutY="23.0" prefHeight="36.0" prefWidth="205.0" promptText="Nom de Stage" />
+                              <TextField fx:id="budget" layoutX="223.0" layoutY="355.0" prefHeight="36.0" prefWidth="205.0" promptText="Budget" />
+                              <Label layoutX="92.0" layoutY="361.0" text="Budget:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="185.0" layoutY="443.0" mnemonicParsing="false" onAction="#ajout" prefHeight="23.0" prefWidth="155.0" style="-fx-background-color: #f58f7c;" text="Ajouter" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Button>
+                              <ComboBox fx:id="departementComboBox" layoutX="223.0" layoutY="149.0" prefHeight="36.0" prefWidth="205.0" promptText="Choisir un département" />
+                              <Label layoutX="90.0" layoutY="153.0" text="Departement:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="encadrantComboBox" layoutX="223.0" layoutY="89.0" prefHeight="36.0" prefWidth="205.0" promptText="Choisir un encadrant" />
+                              <Label layoutX="90.0" layoutY="94.0" text="Encadrant:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="dateFin" layoutX="223.0" layoutY="283.0" prefHeight="36.0" prefWidth="205.0" promptText="JJ/MM/AAAA" />
+                              <Label layoutX="89.0" layoutY="288.0" text="Date Fin:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="dateDeb" layoutX="223.0" layoutY="218.0" prefHeight="36.0" prefWidth="205.0" promptText="JJ/MM/AAAA" />
+                              <Label layoutX="92.0" layoutY="222.0" text="Date Debut:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

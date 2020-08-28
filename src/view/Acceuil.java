@@ -24,7 +24,7 @@ public class Acceuil extends Application{
     private static Stage stage;
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Departement.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Stagiaire.fxml"));
         
         Scene scene = new Scene(root);
         stage.setScene(scene);
