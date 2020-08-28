@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>bean.Departement</class>
     <class>bean.Encadrant</class>
+    <class>bean.Responsable</class>
     <class>bean.Stagee</class>
     <class>bean.Stagiaire</class>
     <class>bean.Tache</class>

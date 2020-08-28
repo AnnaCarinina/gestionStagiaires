@@ -7,6 +7,7 @@ package view;
 
 import bean.Departement;
 import bean.Encadrant;
+import bean.Responsable;
 
 import bean.Stagee;
 import helper.EncadrantFxHelper;
@@ -29,6 +30,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import service.DepartementFacade;
 import service.EncadrantFacade;
+import service.ResponsableFacade;
 import service.StageeFacade;
 import service.StagiaireFacade;
 import util.Session;
@@ -75,7 +77,10 @@ public class LoginRespoController implements Initializable {
     @FXML
     private Button Connect;
     
-        @FXML
+    @FXML
+    private Button retour;
+    
+    @FXML
     private Button signUp1;
     
     @FXML
@@ -126,6 +131,7 @@ public class LoginRespoController implements Initializable {
      StagiaireFacade stagiaireFacade = new StagiaireFacade();
     DepartementFacade departementFacade = new DepartementFacade();
     EncadrantFacade encadrantFacade = new EncadrantFacade();
+    ResponsableFacade responsableFacade = new ResponsableFacade();
     StageeFacade stageFacade = new StageeFacade();
     EncadrantFxHelper encadrantFxHelper;
     /**
@@ -133,9 +139,13 @@ public class LoginRespoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       initComboBox();
+      
     }    
-      public void handleButtonAction(ActionEvent event){
+      public void handleButtonAction(ActionEvent event) throws IOException{
+          
+        if(event.getSource().equals(retour)){
+             Acceuil.forward(event, "welcome.fxml", this.getClass());
+        }
          
         if(event.getSource().equals(Connect)){
              paneSignIn.toFront();
@@ -180,14 +190,14 @@ private void handleMouseClicked(MouseEvent event){
 public void seConnect(ActionEvent actionEvent) throws IOException {
        
         if (!utilisateur.getText().equals("") && !pwd.getText().equals("")) {
-            Object res[] = encadrantFacade.seConnecter(utilisateur.getText(), pwd.getText());
+            Object res[] = responsableFacade.seConnecter(utilisateur.getText(), pwd.getText());
             int resInt = (int) res[0];
             if (resInt == 1){
-                Encadrant e = (Encadrant) res[1];
+                Responsable r = (Responsable) res[1];
                 Session.clear();
-                Session.setAttribut(e, "encaConnect");
+                Session.setAttribut(r, "respoConnect");
              
-               Acceuil.forward(actionEvent, "EditeProfile.fxml", this.getClass());
+               Acceuil.forward(actionEvent, "MenuRespo.fxml", this.getClass());
             } else if (resInt == -1) {
                 alertLogin(actionEvent);
             } else if (resInt == -2) {
@@ -258,9 +268,7 @@ public void seConnect(ActionEvent actionEvent) throws IOException {
         alert.setHeaderText("CHANGER CE LOGIN!");
         alert.showAndWait();
     }
-   private void initComboBox() {
-        departement.setItems(FXCollections.observableArrayList(departementFacade.findAll()));        
-    }
+  
       
     private void actualiser() {
         user.setText("");
