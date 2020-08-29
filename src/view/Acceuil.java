@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -22,9 +23,13 @@ import javafx.stage.Stage;
 public class Acceuil extends Application{
     private static Parent root;
     private static Stage stage;
+
+    static void forward(MouseEvent event, String welcomefxml, Class<? extends StageViewController> aClass) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Stagiaire.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
         
         Scene scene = new Scene(root);
         stage.setScene(scene);

@@ -140,6 +140,11 @@
                         <Font name="Constantia Bold" size="24.0" />
                      </font>
                   </Label>
+      <Button fx:id="retour" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #4f4f51;" text="Retour" textFill="#ebe4e4">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
             <Pane layoutX="431.0" layoutY="58.0" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #D6D6D6;">
@@ -192,6 +197,11 @@
                         <Font name="Constantia Bold" size="24.0" />
                      </font>
                   </Label>
+                    <Button fx:id="retour1" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: #4f4f51;" text="Retour" textFill="#ebe4e4">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
                      <Pane layoutX="431.0" layoutY="58.0" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #D6D6D6;">

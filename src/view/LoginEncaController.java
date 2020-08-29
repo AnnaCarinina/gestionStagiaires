@@ -75,6 +75,12 @@ public class LoginEncaController implements Initializable {
     @FXML
     private Button Connect;
     
+        
+    @FXML
+    private Button retour;
+        @FXML
+    private Button retour1;
+    
         @FXML
     private Button signUp1;
     
@@ -135,7 +141,13 @@ public class LoginEncaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        initComboBox();
     }    
-      public void handleButtonAction(ActionEvent event){
+      public void handleButtonAction(ActionEvent event) throws IOException{
+  if(event.getSource().equals(retour)){
+             Acceuil.forward(event, "welcome.fxml", this.getClass());
+        }
+    if(event.getSource().equals(retour1)){
+             Acceuil.forward(event, "welcome.fxml", this.getClass());
+        }
          
         if(event.getSource().equals(Connect)){
              paneSignIn.toFront();

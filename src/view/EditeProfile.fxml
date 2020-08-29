@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditeProfileController">
+   <children>
+      <BorderPane prefHeight="488.0" prefWidth="749.0" style="-fx-background-color: #D6D6D6;">
+         <top>
+            <Pane fx:id="user" prefHeight="100.0" prefWidth="600.0" style="-fx-background-radius: 0 120 00; -fx-background-color: #4F4F51;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="editer" layoutX="480.0" layoutY="63.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-color: #F58F7C;" text="Editer Compte" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="seDeconnecter" layoutX="603.0" layoutY="63.0" mnemonicParsing="false" onAction="#handleButtonAction" style="-fx-background-color: #F58F7C;" text="Se déconnecter" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="26.0" layoutY="13.0" text="Bonjour:" textFill="#d6d6d6">
+                     <font>
+                        <Font name="System Bold Italic" size="34.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="encadrant" layoutX="172.0" layoutY="21.0" prefHeight="34.0" prefWidth="253.0" text="label" textFill="#d6d6d6">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane fx:id="paneEdit" prefHeight="389.0" prefWidth="749.0" style="-fx-background-color: #D6D6D6;">
+                     <children>
+                        <Label layoutX="33.0" layoutY="153.0" text="Mot De Passe:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="password" layoutX="144.0" layoutY="153.0" prefHeight="25.0" prefWidth="173.0" promptText="**********" />
+                        <Label layoutX="33.0" layoutY="49.0" text="Nom:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nomEd" layoutX="144.0" layoutY="49.0" prefHeight="25.0" prefWidth="173.0" promptText="NOM" />
+                        <Label layoutX="33.0" layoutY="97.0" text="Prenom:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="prenomEd" layoutX="144.0" layoutY="97.0" prefHeight="25.0" prefWidth="173.0" promptText="Prenom" />
+                        <Label layoutX="33.0" layoutY="216.0" text="Telephone:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="telephoneEd" layoutX="144.0" layoutY="216.0" prefHeight="25.0" prefWidth="173.0" promptText="Telephone" />
+                        <Label layoutX="34.0" layoutY="273.0" text="Gender:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="rbMEd" layoutX="150.0" layoutY="275.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="55.0" text="Male">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender1" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbFEd" layoutX="231.0" layoutY="274.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="59.0" text="Female" toggleGroup="$gender1" />
+                        <Label layoutX="383.0" layoutY="49.0" text="E-Mail:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="emailEd" layoutX="500.0" layoutY="51.0" prefHeight="30.0" prefWidth="173.0" promptText="E-Mail" />
+                        <Label layoutX="386.0" layoutY="97.0" text="Adresse:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="adresseEd" layoutX="500.0" layoutY="97.0" prefHeight="57.0" prefWidth="173.0" promptText="Adresse" />
+                        <Button fx:id="annuler" layoutX="638.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="37.0" prefWidth="103.0" style="-fx-background-color: #F58F7C;" text="Annuler" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="518.0" layoutY="321.0" mnemonicParsing="false" onAction="#editer" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #F58F7C;" text="Editer" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="386.0" layoutY="175.0" text="Departement:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="departementComboBoxEd" layoutX="500.0" layoutY="175.0" onAction="#actuComboBox" prefHeight="25.0" prefWidth="173.0" promptText="Select Departement" />
+                        <Label layoutX="385.0" layoutY="233.0" text="Stage:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="stageeComboBoxEd" layoutX="500.0" layoutY="233.0" prefHeight="25.0" prefWidth="173.0" promptText="Gestion des stagiaires" />
+                        <Separator layoutX="360.0" layoutY="66.0" orientation="VERTICAL" prefHeight="219.0" prefWidth="7.0" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="acceuil" prefHeight="388.0" prefWidth="749.0" style="-fx-background-color: #D6D6D6;">
+                     <children>
+                        <Label layoutX="134.0" layoutY="45.0" prefHeight="56.0" prefWidth="441.0" text="   Gestion des Stagiaires" textFill="#4f4f51">
+                           <font>
+                              <Font name="System Bold Italic" size="39.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="gerer" layoutX="249.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="231.0" style="-fx-background-color: #F58F7C;" text="Gérer les Stages" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

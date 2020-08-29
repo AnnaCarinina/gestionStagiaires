@@ -27,6 +27,8 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import service.DepartementFacade;
@@ -69,6 +71,9 @@ public class StagiaireController implements Initializable {
     @FXML
     private Button editer;
     
+        @FXML
+    private Button retour;
+        
     @FXML
     private Button seDeconnecter;
     
@@ -149,6 +154,12 @@ public class StagiaireController implements Initializable {
 
     @FXML
     private TextArea adresseEd;
+    
+         @FXML
+    private ImageView back;
+    
+    @FXML
+    private ImageView back1;
 
     @FXML
     private TextField etablissementEd;
@@ -421,5 +432,22 @@ public class StagiaireController implements Initializable {
         message.setVisible(true);
         stagiareTableView.setVisible(true);
         stagiaireFxHelper.setList(stagiaireFacade.recherchStagiaire(nomRech.getText(), prenomRech.getText(), gender, stageeComboBoxRech.getValue(), departementComboBoxRech.getValue(), encadrantComboBoxRech.getValue()));
+    }
+    
+    @FXML
+private void handleMouseClicked(MouseEvent event){
+    if(event.getSource().equals(back)) {
+            paneAdd.toFront();
+    } 
+    if(event.getSource().equals(back1)) {
+            paneAdd.toFront();
+    } 
+    
+}
+    @FXML
+    private void handleActionButton(ActionEvent event) throws IOException{
+                if(event.getSource().equals(retour)){
+            Acceuil.forward(event, "EditeProfile.fxml", this.getClass());
+        }
     }
 }
