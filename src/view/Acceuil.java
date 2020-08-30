@@ -24,7 +24,7 @@ public class Acceuil extends Application{
     private static Parent root;
     private static Stage stage;
 
-    static void forward(MouseEvent event, String welcomefxml, Class<? extends StageViewController> aClass) {
+    static void forward(MouseEvent event, String welcomefxml, Class<? extends MenuEncaController> aClass) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     @Override

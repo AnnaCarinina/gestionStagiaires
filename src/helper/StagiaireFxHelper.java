@@ -4,6 +4,7 @@ import bean.Stagiaire;
 import java.util.List;
 
 import javafx.scene.control.TableView;
+import util.DateUtil;
 
 public class StagiaireFxHelper extends AbstractFxHelper<Stagiaire> {
 
@@ -12,13 +13,11 @@ public class StagiaireFxHelper extends AbstractFxHelper<Stagiaire> {
     static {
 
         titres = new AbstractFxHelperItem[]{
-            new AbstractFxHelperItem("N°.", "id"),
             new AbstractFxHelperItem("Prenom", "prenom"),
             new AbstractFxHelperItem("Nom", "nom"),
-            new AbstractFxHelperItem("DateNiss", "dateNaissance"),
+            new AbstractFxHelperItem("Date Naissance", "dateNaissance"),
             new AbstractFxHelperItem("Stage", "stagee"),
-            new AbstractFxHelperItem("Departement", "departement"),
-            new AbstractFxHelperItem("Encadrant", "encadrant")
+            new AbstractFxHelperItem("Departement", "departement")
             };
     }
 

@@ -23,7 +23,7 @@ public class Stagiaire implements Serializable {
     private Date dateNaissance;
     private String gender;
     private String etablissement;
-    private int niveau;
+    private String niveau;
     private String filiere;
     private String telephone;
     private String adresse;
@@ -103,11 +103,11 @@ public class Stagiaire implements Serializable {
         this.etablissement = etablissement;
     }
 
-    public int getNiveau() {
+    public String getNiveau() {
         return niveau;
     }
 
-    public void setNiveau(int niveau) {
+    public void setNiveau(String niveau) {
         this.niveau = niveau;
     }
 
@@ -143,7 +143,7 @@ public class Stagiaire implements Serializable {
         this.email = email;
     }
 
-    public Stagiaire(String nom, String prenom, Date dateNaissance, String gender, String etablissement, int niveau, String filiere, String telephone, String adresse, String email, Stagee stage, Departement departement, Encadrant encadrantStage) {
+    public Stagiaire(String nom, String prenom, Date dateNaissance, String gender, String etablissement, String niveau, String filiere, String telephone, String adresse, String email, Stagee stage, Departement departement, Encadrant encadrantStage) {
         this.stagee = stage;
         this.nom = nom;
         this.prenom = prenom;

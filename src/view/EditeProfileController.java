@@ -112,7 +112,7 @@ public class EditeProfileController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
         if(event.getSource().equals(gerer)){
-            Acceuil.forward(event, "StageView.fxml", this.getClass());
+            Acceuil.forward(event, "MenuEnca.fxml", this.getClass());
         }
         if(event.getSource().equals(editer)){
             paneEdit.toFront();
@@ -135,7 +135,7 @@ public class EditeProfileController implements Initializable {
         } else if (rbFEd.isSelected()) {
             gender = "F";
         }
-        if (!password.getText().equals("") && !nomEd.getText().equals("") && !prenomEd.getText().equals("") && !adresseEd.getText().equals("") && !telephoneEd.getText().equals("") && !emailEd.getText().equals("") && !gender.equals("") && !departementComboBoxEd.getValue().equals("") && !stageeComboBoxEd.getValue().equals("")) {
+        if (!password.getText().equals("") && !nomEd.getText().equals("") && !prenomEd.getText().equals("") && !adresseEd.getText().equals("") && !telephoneEd.getText().equals("") && !emailEd.getText().equals("") && !gender.equals("") && !departementComboBoxEd.getValue().equals("")) {
             e.setPassword(password.getText());
             e.setNom(nomEd.getText());
             e.setPrenom(prenomEd.getText());
@@ -144,7 +144,7 @@ public class EditeProfileController implements Initializable {
             e.setEmail(emailEd.getText());
             e.setGender(gender);
             e.setDepartement(departementComboBoxEd.getValue());
-            e.setStagee(stageeComboBoxEd.getValue());
+           // e.setStagee(stageeComboBoxEd.getValue());
             encadrantFacade.edit(e);
             acceuil.toFront();
         } else {

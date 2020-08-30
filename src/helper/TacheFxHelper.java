@@ -13,7 +13,7 @@ public class TacheFxHelper extends AbstractFxHelper<Tache> {
     static {
 
         titres = new AbstractFxHelperItem[]{
-            new AbstractFxHelperItem("ID", "id"),
+            
             new AbstractFxHelperItem("Nom", "nom"),
             new AbstractFxHelperItem("Avancement", "avancement"),
             new AbstractFxHelperItem("Importance", "importance"),

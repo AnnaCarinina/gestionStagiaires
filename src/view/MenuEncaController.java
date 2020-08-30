@@ -9,10 +9,16 @@ import bean.Departement;
 import bean.Encadrant;
 import bean.Stagee;
 import bean.Stagiaire;
+import bean.Tache;
+import helper.StageeFxHelper;
+import helper.StagiaireFxHForDep;
 import helper.StagiaireFxHelper;
+import helper.TacheFxHelper;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +29,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TabPane;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -44,18 +49,14 @@ import util.Session;
  *
  * @author LEILA
  */
-public class StagiaireController implements Initializable {
+public class MenuEncaController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
-    
-    @FXML
+  @FXML
     private Button stage;
     
-     @FXML
-    private AnchorPane stagiairePane;
-
     @FXML
     private Button stagiaire;
     
@@ -63,20 +64,166 @@ public class StagiaireController implements Initializable {
     private Button tache;
     
     @FXML
+    private Button seDeconnecter;
+    
+    @FXML
+    private Button retour;
+    
+    @FXML
+    private Button retour1;  
+    
+    @FXML
+    private Button retour3;
+    
+    @FXML 
+    private Pane paneEdit;
+    
+    @FXML
+    private TextField nom;
+
+    @FXML
+    private TextField budget;
+
+    @FXML
+    private DatePicker dateDeb;
+
+    @FXML
+    private DatePicker dateFin;
+
+    @FXML
+    private ComboBox<Encadrant> encadrantComboBox;
+
+    @FXML
+    private ComboBox<Departement> departementComboBox;
+    
+     @FXML
+    private Pane paneStagiaire;
+     
+    @FXML
+    private Pane paneTache;
+    
+    @FXML
+    private Label stageLabel;
+    @FXML
+    private Label encaLabel;
+    @FXML
+    private Label deptLabel;
+    @FXML
+    private Label avancLabel;
+    @FXML
+    private Label budgetLabel;
+
+        @FXML
+    private TextField tacheAvanc;
+    
+    @FXML
+    private Button editAvancButton;
+    
+    @FXML
+    private AnchorPane tacheEditAvanc;
+    
+    @FXML
+    private TableView tacheTableView = new TableView();
+    
+   
+    
+    @FXML
+    private Label tacheInfo;
+    
+    StageeFacade stageeFacade = new StageeFacade();
+    DepartementFacade departementFacade = new DepartementFacade();
+    EncadrantFacade encadrantFacade = new EncadrantFacade();
+    TacheFacade tacheFacade = new TacheFacade();
+    StagiaireFacade stagiaireFacade = new StagiaireFacade();
+    StageeFxHelper stageeFxHelper;
+    TacheFxHelper tacheFxHelper;
+    StagiaireFxHForDep stagiaireFxHForDep;
+    
+      Encadrant encadrant = (Encadrant) Session.getAttribut("encaConnect");
+            
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+       // initComboBox();
+        initHelper();
+         initStageData();
+         
+          if (Session.getAttribut("stagiaireEdit") != null) {
+            Stagiaire stagiaire = (Stagiaire) Session.getAttribut("stagiaireEdit");
+            stagiairePane.toFront();
+            fillField(stagiaire);
+        }
+ 
+        if (Session.getAttribut("tacheEdit") instanceof Double) {
+             try {
+                 Acceuil.showView("Tache.fxml", this.getClass());
+             } catch (IOException ex) {
+                 Logger.getLogger(MenuEncaController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+            Session.setAttribut(null, "tacheEdit");
+        }
+        if (Session.getAttribut("stagiaireEdit") instanceof Double) {
+           try {
+                 Acceuil.showView("Stagiaire.fxml", this.getClass());
+             } catch (IOException ex) {
+                 Logger.getLogger(MenuEncaController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+            Session.setAttribut(null, "stagiaireEdit");
+        }
+    }    
+    
+    @FXML
+    private void handleActionButton(ActionEvent event) throws IOException{
+        if(event.getSource().equals(tache)){
+             paneTache.toFront();
+        }
+        if(event.getSource().equals(retour)){
+            Acceuil.forward(event, "EditeProfile.fxml", this.getClass());
+        }
+        
+        if(event.getSource().equals(retour1)){
+             paneStagiaire.toFront();
+        }
+                      
+        
+        if(event.getSource().equals(seDeconnecter)){
+           Acceuil.forward(event, "welcome.fxml", this.getClass());
+        }
+        
+        if(event.getSource().equals(retour)){
+            Acceuil.forward(event, "EditeProfile.fxml", this.getClass());
+        }
+    }
+    
+        public void initStageData() {
+        Stagee stagee = encadrant.getStagee();
+        stageLabel.setText(stagee.toString());
+        encaLabel.setText(encadrant.toString());
+        deptLabel.setText(stagee.getDepartement().toString());
+        avancLabel.setText(stagee.getAvancement().toString());
+        budgetLabel.setText(stagee.getBudget().toString());
+    }
+
+        //Stagiaires
+        
+     
+    
+     @FXML
+    private AnchorPane stagiairePane;
+
+   
+    @FXML
     private Button rechercher;
     
     @FXML
     private Button ajouter;
     
     @FXML
+    private Button mesStagiaires;
+    
+    @FXML
     private Button editer;
     
-        @FXML
-    private Button retour;
-        
-    @FXML
-    private Button seDeconnecter;
-    
+               
     @FXML 
     private Pane paneAdd;
     
@@ -84,10 +231,13 @@ public class StagiaireController implements Initializable {
     private Pane paneRecherche;
     
     @FXML 
-    private Pane paneEdit;
+    private Pane paneMesStagiaires;
+    
+    @FXML 
+    private Pane paneStage;
     
     @FXML
-    private TextField nom;
+    private TextField nomm;
 
     @FXML
     private TextField prenom;
@@ -120,10 +270,7 @@ public class StagiaireController implements Initializable {
     private TextField etablissement;
     @FXML
     private ComboBox<Stagee> stageeComboBox = new ComboBox<>();
-    @FXML
-    private ComboBox<Departement> departementComboBox = new ComboBox<>();
-    @FXML
-    private ComboBox<Encadrant> encadrantComboBox = new ComboBox<>();
+    
     
     @FXML
     private TextField nomEd;
@@ -155,8 +302,11 @@ public class StagiaireController implements Initializable {
     @FXML
     private TextArea adresseEd;
     
-         @FXML
+    @FXML
     private ImageView back;
+    
+    @FXML
+    private ImageView goBack;
     
     @FXML
     private ImageView back1;
@@ -185,7 +335,9 @@ public class StagiaireController implements Initializable {
 
     @FXML
     private TableView stagiareTableView = new TableView();
-
+    @FXML
+    private TableView stagiareTableView1 = new TableView();
+   
     @FXML
     private ComboBox<Stagee> stageeComboBoxRech = new ComboBox<>();
     @FXML
@@ -195,43 +347,28 @@ public class StagiaireController implements Initializable {
 
 
 
+       StagiaireFxHelper stagiaireFxHelper;
+       StagiaireFxHelper stagiaireFxHelper1;
     
-    StageeFacade stageeFacade = new StageeFacade();
-    DepartementFacade departementFacade = new DepartementFacade();
-    EncadrantFacade encadrantFacade = new EncadrantFacade();
-    TacheFacade sujetFacade = new TacheFacade();
-    StagiaireFacade stagiaireFacade = new StagiaireFacade();
-    StagiaireFxHelper stagiaireFxHelper;
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        initComboBox();
-        initHelper();
-
-        if (Session.getAttribut("stagiaireEdit") != null) {
-            Stagiaire stagiaire = (Stagiaire) Session.getAttribut("stagiaireEdit");
-            stagiairePane.toFront();
-            fillField(stagiaire);
-        }
-    }    
-    
+ 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException{
-        
-        if(event.getSource().equals(tache)){
-          Acceuil.forward(event, "Tache.fxml", this.getClass());
-        }
-        
+               
         if(event.getSource().equals(stage)){
-            Acceuil.forward(event, "StageView.fxml", this.getClass());
+           paneStage.toFront();
         }
         
-   
+        if(event.getSource().equals(stagiaire)){
+           paneStagiaire.toFront();
+        }
         
          if(event.getSource().equals(rechercher)){
             paneRecherche.toFront();
         }
          
+          if(event.getSource().equals(mesStagiaires)){
+            paneMesStagiaires.toFront();
+        }
           if(event.getSource().equals(ajouter)){
             paneAdd.toFront();
         }
@@ -240,36 +377,42 @@ public class StagiaireController implements Initializable {
             paneEdit.toFront();
         }
            
+        if(event.getSource().equals(retour)){
+          Acceuil.forward(event, "EditeProfile.fxml", this.getClass());
+        }
            if(event.getSource().equals(seDeconnecter)){
            Acceuil.forward(event, "welcome.fxml", this.getClass());
         }
     }
      @FXML
     public void ajoute(ActionEvent actionEventAdd) {
-        Stagiaire stagiaire = getParam(actionEventAdd);
+       Stagiaire stagiaire = getParam(actionEventAdd);
         if (stagiaire != null) {
             stagiaireFacade.create(stagiaire);
             actualiser();
+            stagiaireFxHelper1.setList(stagiaireFacade.findByEnca(encadrant));
         }
     }
     
-     private Stagiaire getParam(ActionEvent actionEvent) {
+    private Stagiaire getParam(ActionEvent actionEvent) {
         String gender = "";
         if (rb1.isSelected()) {
             gender = "M";
         } else if (rb2.isSelected()) {
             gender = "F";
         }
-        if (!nom.getText().equals("") && !prenom.getText().equals("") && !dateNaissance.getValue().toString().equals("") && !gender.equals("") && !etablissement.getText().equals("") && !niveau.getText().equals("") && !filiere.getText().equals("") && !telephone.getText().equals("") && !adresse.getText().equals("") && !email.getText().equals("") && !stageeComboBox.getValue().equals(null) && !departementComboBox.getValue().equals(null) && !encadrantComboBox.getValue().equals(null)) {
-            Stagiaire stagiaire = new Stagiaire(nom.getText(), prenom.getText(), DateUtil.convert(dateNaissance.getValue().toString()), gender, etablissement.getText(), new Integer(niveau.getText()), filiere.getText(), telephone.getText(), adresse.getText(), email.getText(), stageeComboBox.getValue(), departementComboBox.getValue(), encadrantComboBox.getValue());
+        if (!nomm.getText().equals("") && !prenom.getText().equals("") && !dateNaissance.getEditor().getText().equals("") && !gender.equals("") && !etablissement.getText().equals("") && !niveau.getText().equals("") && !filiere.getText().equals("") && !telephone.getText().equals("") && !adresse.getText().equals("") && !email.getText().equals("")) {
+            System.out.print(encadrant.getDepartement().getNom());
+            Stagiaire stagiaire = new Stagiaire(nomm.getText(), prenom.getText(), DateUtil.convert(dateNaissance.getEditor().getText()), gender, etablissement.getText(), niveau.getText(), filiere.getText(), telephone.getText(), adresse.getText(), email.getText(), encadrant.getStagee(), encadrant.getDepartement(), encadrant);
             return stagiaire;
         }
         alert(actionEvent);
         return null;
     }
+
      
      public void actualiser() {
-        nom.setText("");
+        nomm.setText("");
         prenom.setText("");
         rb1.setSelected(false);
         rb2.setSelected(false);
@@ -281,15 +424,15 @@ public class StagiaireController implements Initializable {
         adresse.setText("");
         etablissement.setText("");
         stageeComboBox.setValue(null);
-        departementComboBox.setValue(null);
-        encadrantComboBox.setValue(null);
+//        departementComboBox.setValue(null);
+//        encadrantComboBox.setValue(null);
         nomRech.setText("");
         prenomRech.setText("");
         rb1Rech.setSelected(false);
         rb2Rech.setSelected(false);
         stageeComboBoxRech.setValue(null);
-        departementComboBoxRech.setValue(null);
-        encadrantComboBoxRech.setValue(null);
+        //   departementComboBoxRech.setValue(null);
+      //  encadrantComboBoxRech.setValue(null);
         nomEd.setText("");
         prenomEd.setText("");
         rb1Ed.setSelected(false);
@@ -301,9 +444,9 @@ public class StagiaireController implements Initializable {
         telephoneEd.setText("");
         adresseEd.setText("");
         etablissementEd.setText("");
-        stageeComboBoxEd.setValue(null);
-        departementComboBoxEd.setValue(null);
-        encadrantComboBoxEd.setValue(null);
+    //    stageeComboBoxEd.setValue(null);
+     //   departementComboBoxEd.setValue(null);
+      //  encadrantComboBoxEd.setValue(null);
     }
      
        private void alert(ActionEvent actionEvent) {
@@ -326,20 +469,20 @@ public class StagiaireController implements Initializable {
             } else if (rb2Ed.isSelected()) {
                 gender = "F";
             }
-            if (!nomEd.getText().equals("") || !prenomEd.getText().equals("") || !dateNaissanceEd.getValue().toString().equals("") || !gender.equals("") || !etablissementEd.getText().equals("") || !niveauEd.getText().equals("") || !filiereEd.getText().equals("") || !telephoneEd.getText().equals("") || !adresseEd.getText().equals("") || !emailEd.getText().equals("") || !stageeComboBoxEd.getValue().equals(null) || !departementComboBoxEd.getValue().equals(null) || !encadrantComboBoxEd.getValue().equals(null)) {
+            if (!nomEd.getText().equals("") || !prenomEd.getText().equals("") || !dateNaissanceEd.getEditor().getText().equals("") || !gender.equals("") || !etablissementEd.getText().equals("") || !niveauEd.getText().equals("") || !filiereEd.getText().equals("") || !telephoneEd.getText().equals("") || !adresseEd.getText().equals("") || !emailEd.getText().equals("") || !stageeComboBoxEd.getValue().equals(null) || !departementComboBoxEd.getValue().equals(null) || !encadrantComboBoxEd.getValue().equals(null)) {
                 stagiaire.setNom(nomEd.getText());
                 stagiaire.setPrenom(prenomEd.getText());
-                stagiaire.setDateNaissance(DateUtil.convert(dateNaissanceEd.getValue().toString()));
+                stagiaire.setDateNaissance(DateUtil.convert(dateNaissanceEd.getEditor().getText()));
                 stagiaire.setGender(gender);
                 stagiaire.setEtablissement(etablissementEd.getText());
-                stagiaire.setNiveau(new Integer(niveauEd.getText()));
+                stagiaire.setNiveau(niveauEd.getText());
                 stagiaire.setFiliere(filiereEd.getText());
                 stagiaire.setTelephone(telephoneEd.getText());
                 stagiaire.setAdresse(adresseEd.getText());
                 stagiaire.setEmail(emailEd.getText());
-                stagiaire.setStagee(stageeComboBoxEd.getValue());
-                stagiaire.setDepartement(departementComboBoxEd.getValue());
-                stagiaire.setEncadrant(encadrantComboBoxEd.getValue());
+                stagiaire.setStagee(encadrant.getStagee());
+                stagiaire.setDepartement(encadrant.getDepartement());
+                stagiaire.setEncadrant(encadrant);
                 stagiaireFacade.edit(stagiaire);
                 int i = stagiaireFxHelper.getTable().getItems().indexOf(stagiaireFxHelper.getSelected());
                 stagiaireFxHelper.getTable().getItems().set(i, stagiaire);
@@ -367,14 +510,16 @@ public class StagiaireController implements Initializable {
     }
     private void initHelper() {
         stagiaireFxHelper = new StagiaireFxHelper(stagiareTableView);
+        stagiaireFxHelper1 = new StagiaireFxHelper(stagiareTableView1, stagiaireFacade.findByEnca(encadrant));
+        tacheFxHelper = new TacheFxHelper(tacheTableView, tacheFacade.findByStage(this.encadrant.getStagee()));
     }
 
     private void initComboBox() {
         stageeComboBox.setItems(FXCollections.observableArrayList(stageeFacade.findAll()));
-        departementComboBox.setItems(FXCollections.observableArrayList(departementFacade.findAll()));
-        encadrantComboBox.setItems(FXCollections.observableArrayList(encadrantFacade.findAll()));
+       // departementComboBox.setItems(FXCollections.observableArrayList(departementFacade.findAll()));
+//        encadrantComboBox.setItems(FXCollections.observableArrayList(encadrantFacade.findAll()));
         stageeComboBoxEd.setItems(FXCollections.observableArrayList(stageeFacade.findAll()));
-        departementComboBoxEd.setItems(FXCollections.observableArrayList(departementFacade.findAll()));
+       // departementComboBoxEd.setItems(FXCollections.observableArrayList(departementFacade.findAll()));
         encadrantComboBoxEd.setItems(FXCollections.observableArrayList(encadrantFacade.findAll()));
         stageeComboBoxRech.setItems(FXCollections.observableArrayList(stageeFacade.findAll()));
         departementComboBoxRech.setItems(FXCollections.observableArrayList(departementFacade.findAll()));
@@ -394,14 +539,14 @@ public class StagiaireController implements Initializable {
                 rb2Ed.setSelected(true);
             }
             emailEd.setText(stagiaire.getEmail());
-            dateNaissanceEd.getEditor().setText(stagiaire.getDateNaissance().toString());
+            dateNaissanceEd.getEditor().setText(DateUtil.convertToString(stagiaire.getDateNaissance()));
             niveauEd.setText(stagiaire.getNiveau() + "");
             filiereEd.setText(stagiaire.getFiliere());
             telephoneEd.setText(stagiaire.getTelephone());
             etablissementEd.setText(stagiaire.getEtablissement());
-            stageeComboBoxEd.getSelectionModel().select(stagiaire.getStagee());
-            departementComboBoxEd.getSelectionModel().select(stagiaire.getDepartement());
-            encadrantComboBoxEd.getSelectionModel().select(stagiaire.getEncadrant());
+           // stageeComboBoxEd.getSelectionModel().select(stagiaire.getStagee());
+           // departementComboBoxEd.getSelectionModel().select(stagiaire.getDepartement());
+          //  encadrantComboBoxEd.getSelectionModel().select(stagiaire.getEncadrant());
         }
     }
         
@@ -416,7 +561,8 @@ public class StagiaireController implements Initializable {
         Stagiaire stagiaire = stagiaireFxHelper.getSelected();
         if (stagiaire != null) {
             stagiaireFacade.remove(stagiaire);
-            stagiaireFxHelper.setList(stagiaireFacade.findAll());
+           stagiaireFxHelper.setList(stagiaireFacade.findByEnca(encadrant));
+            stagiaireFxHelper1.setList(stagiaireFacade.findByEnca(encadrant));
             //stagiaireFxHelper.getTable().getItems().remove(stagiaireFxHelper.getSelected());
         }
     }
@@ -440,14 +586,56 @@ private void handleMouseClicked(MouseEvent event){
             paneAdd.toFront();
     } 
     if(event.getSource().equals(back1)) {
-            paneAdd.toFront();
+            paneRecherche.toFront();
     } 
     
+    if(event.getSource().equals(goBack)) {
+            paneMesStagiaires.toFront();
+    } 
 }
+
+ public void getForEdit1(ActionEvent actionEvent) {
+        Stagiaire stagiaire = stagiaireFxHelper1.getSelected();
+        fillField(stagiaire);
+    }
+ 
+ 
     @FXML
-    private void handleActionButton(ActionEvent event) throws IOException{
-                if(event.getSource().equals(retour)){
-            Acceuil.forward(event, "EditeProfile.fxml", this.getClass());
+    public void delete1(ActionEvent actionEventAdd) {
+        Stagiaire stagiaire = stagiaireFxHelper1.getSelected();
+        if (stagiaire != null) {
+            stagiaireFacade.remove(stagiaire);
+            stagiaireFxHelper1.setList(stagiaireFacade.findByEnca(encadrant));
+            //stagiaireFxHelper.getTable().getItems().remove(stagiaireFxHelper.getSelected());
         }
     }
+    
+
+    
+    @FXML
+    public void geteditAvanc(ActionEvent actionEvent) {
+        Tache tache = tacheFxHelper.getSelected();
+        if (tache != null) {
+            tacheTableView.setVisible(false);
+            editAvancButton.setDisable(true);
+            tacheEditAvanc.setVisible(true);
+            tacheInfo.setText(tache.getNom() + " Avanc.");
+            tacheAvanc.setText(tache.getAvancement().toString());
+        }
+    }
+@FXML
+    public void editAvanc(ActionEvent actionEvent) {
+        Tache tache = tacheFxHelper.getSelected();
+        tache.setAvancement(new Double(tacheAvanc.getText()));
+        tacheFacade.edit(tache);
+        stageeFacade.calculeAvanc(this.encadrant.getStagee());
+
+        tacheEditAvanc.setVisible(false);
+        editAvancButton.setDisable(false);
+        tacheTableView.setVisible(true);
+        tacheFxHelper.getTable().refresh();
+        tacheFxHelper.setList(tacheFacade.findByStage(this.encadrant.getStagee()));
+        
+    }
+    
 }
