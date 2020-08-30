@@ -12,12 +12,16 @@ public class EncadrantFxHelper extends AbstractFxHelper<Encadrant> {
     static {
 
         titres = new AbstractFxHelperItem[]{
-            new AbstractFxHelperItem("Login", "login"),
+            new AbstractFxHelperItem("Nom d'utilisateur", "login"),
             new AbstractFxHelperItem("Nom", "nom"),
-            new AbstractFxHelperItem("Prenom", "prenom"),
-            new AbstractFxHelperItem("Gender", "gender"),
+            new AbstractFxHelperItem("Prénom", "prenom"),
+            new AbstractFxHelperItem("Mail", "email"),
+            new AbstractFxHelperItem("Adresse", "adresse"),
+            new AbstractFxHelperItem("Téléphone", "telephone"),
+            new AbstractFxHelperItem("Genre", "gender"),
             new AbstractFxHelperItem("Stage", "stagee"),
-            new AbstractFxHelperItem("Departement", "departement")
+            new AbstractFxHelperItem("Departement", "departement"),
+            
         };
     }
 

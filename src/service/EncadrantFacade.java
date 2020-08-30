@@ -6,6 +6,7 @@ import bean.Departement;
 import bean.Encadrant;
 import bean.Stagee;
 import bean.Stagiaire;
+import javafx.scene.control.Button;
 import util.SearchUtil;
 
 /**
@@ -20,11 +21,12 @@ public class EncadrantFacade extends AbstractFacade<Encadrant> {
         super(Encadrant.class);
     }
 
-    public List<Encadrant> recherchEncadrants(String login, String nom, String prenom, String gender, Stagee stagee, Departement departement) {
+    public List<Encadrant> recherchEncadrants(String login, String nom, String prenom, String gender, Stagee stagee, Departement departement, String mail) {
         String req = "SELECT e FROM Encadrant e WHERE 1=1";
         req += SearchUtil.addConstraint("e", "login", "=", login);
         req += SearchUtil.addConstraint("e", "nom", "=", nom);
         req += SearchUtil.addConstraint("e", "prenom", "=", prenom);
+        req += SearchUtil.addConstraint("e", "email", "=", mail);
         req += SearchUtil.addConstraint("e", "gender", "=", gender);
         if (stagee != null) {
             req += SearchUtil.addConstraint("e", "stagee.id", "=", stagee.getId());
@@ -82,6 +84,10 @@ public class EncadrantFacade extends AbstractFacade<Encadrant> {
 
     public List<Encadrant> findByDep(Departement departement) {
         return getEntityManager().createQuery("SELECT e FROM Encadrant e WHERE e.departement.id=" + departement.getId()).getResultList();
+    }
+
+    public void create(Button stagiaire) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
