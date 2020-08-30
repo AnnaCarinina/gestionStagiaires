@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MenuRespoController">
+   <children>
+      <BorderPane prefHeight="602.0" prefWidth="800.0">
+         <center>
+            <AnchorPane prefHeight="602.0" prefWidth="200.0" style="-fx-background-color: #D6D6D6;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="400.0" fitWidth="300.0" layoutX="141.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pictures/s.PNG" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="139.0" layoutY="375.0" text="GESTION DES STAGIAIRES" textFill="#4f4f51">
+                     <font>
+                        <Font name="Constantia Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </center>
+         <left>
+            <Pane prefHeight="609.0" prefWidth="242.0" style="-fx-background-color: #D6D6D6;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane layoutX="-8.0" prefHeight="602.0" prefWidth="249.0" style="-fx-background-color: #4f4f51; -fx-background-radius: 0 140 00;">
+                     <children>
+                        <Button fx:id="stage" layoutX="5.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="STAGE" textFill="#f58f7c">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="stagiaire" layoutX="5.0" layoutY="173.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="71.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="STAGIAIRE" textFill="#f58f7c">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="tache" layoutX="5.0" layoutY="244.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="69.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="TACHE" textFill="#f58f7c">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="encadrant" layoutX="5.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="ENCADRANT" textFill="#f58f7c">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="departement" layoutX="5.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="63.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="DEPARTEMENT" textFill="#f58f7c">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="seDeconnecter" layoutX="5.0" layoutY="432.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="76.0" prefWidth="239.0" style="-fx-background-color: #4f4f51;" text="Se déconnecter" textFill="#f58f7c">
+                           <font>
+                              <Font name="System Italic" size="22.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

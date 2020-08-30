@@ -111,7 +111,7 @@ public class DepartementController implements Initializable {
                 int i = departementFxHelper.getTable().getItems().indexOf(departementFxHelper.getSelected());
                 departementFxHelper.getTable().getItems().set(i, departement);
                 actualiser();
-                departementPane.getSelectionModel().selectPrevious();
+             //   departementPane.getSelectionModel().selectPrevious();
             } else {
                 alert(actionEvent);
             }
@@ -139,12 +139,15 @@ public class DepartementController implements Initializable {
     @FXML
     public void getForEdit() {
         Departement d = departementFxHelper.getSelected();
-        if(d!=null){
-        departementPane.getSelectionModel().select(3);
-        nomEd.setText(d.getNom());
-        }
+        fillField(d);
     }
 
+    public void fillField(Departement d){
+        if(d != null){
+            paneEdit.toFront();
+            nomEd.setText(d.getNom());
+        }
+    }
     @FXML
     public void details(MouseEvent mouseEvent) {
         Departement d = departementFxHelper.getSelected();
@@ -312,7 +315,7 @@ public class DepartementController implements Initializable {
              Acceuil.forward(event, "Stagiaire.fxml", this.getClass());
         }
                if(event.getSource().equals(stage)){
-             Acceuil.forward(event, "Stage.fxml", this.getClass());
+             Acceuil.forward(event, "StageView.fxml", this.getClass());
         }
                       if(event.getSource().equals(encadrant)){
              Acceuil.forward(event, "Encadrant.fxml", this.getClass());

@@ -92,83 +92,6 @@
                         </HBox>
                      </children>
                   </Pane>
-                  <Pane fx:id="paneStage" prefHeight="602.0" prefWidth="559.0">
-                     <children>
-                        <HBox prefHeight="44.0" prefWidth="564.0">
-                           <children>
-                              <Button layoutX="198.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="44.0" prefWidth="565.0" style="-fx-background-color: #F58F7C;" text="Gérer mon stage" textFill="#4f4f51">
-                                 <font>
-                                    <Font size="17.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <Pane fx:id="pane" layoutX="-1.0" layoutY="44.0" prefHeight="559.0" prefWidth="565.0" style="-fx-background-color: #D6D6D6;">
-                           <children>
-                              <Label layoutX="135.0" layoutY="115.0" prefHeight="23.0" prefWidth="122.0" text="Nom Stage:">
-                                 <font>
-                                    <Font name="System Italic" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="135.0" layoutY="395.0" text="Budget:">
-                                 <font>
-                                    <Font name="System Italic" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="retour1" layoutX="335.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="38.0" prefWidth="187.0" style="-fx-background-color: #f58f7c;" text="Gérer les stagiaires" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="17.0" />
-                                 </font>
-                              </Button>
-                              <Label layoutX="135.0" layoutY="255.0" text="Département:">
-                                 <font>
-                                    <Font name="System Italic" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="135.0" layoutY="185.0" text="Encadrant:">
-                                 <font>
-                                    <Font name="System Italic" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="135.0" layoutY="325.0" prefHeight="27.0" prefWidth="155.0" text="Avancement:">
-                                 <font>
-                                    <Font name="System Italic" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="stageLabel" layoutX="278.0" layoutY="115.0" prefHeight="27.0" prefWidth="228.0" text="Label">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="encaLabel" layoutX="278.0" layoutY="182.0" prefHeight="32.0" prefWidth="233.0" text="Label">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="avancLabel" layoutX="278.0" layoutY="318.0" prefHeight="32.0" prefWidth="252.0" text="Label">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="budgetLabel" layoutX="278.0" layoutY="390.0" prefHeight="32.0" prefWidth="249.0" text="Label">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="deptLabel" layoutX="278.0" layoutY="249.0" prefHeight="32.0" prefWidth="253.0" text="Label">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="213.0" layoutY="48.0" prefHeight="33.0" prefWidth="191.0" text="Mon Stage" textFill="#4f4f51">
-                                 <font>
-                                    <Font name="Arial" size="29.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </Pane>
                   <Pane fx:id="paneStagiaire" prefHeight="602.0" prefWidth="559.0">
                      <children>
                         <HBox prefHeight="44.0" prefWidth="564.0">
@@ -424,6 +347,83 @@
                               <Label layoutX="218.0" layoutY="72.0" text="Mes Stagiaires:">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="paneStage" prefHeight="602.0" prefWidth="559.0">
+                     <children>
+                        <HBox prefHeight="44.0" prefWidth="564.0">
+                           <children>
+                              <Button layoutX="198.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="44.0" prefWidth="565.0" style="-fx-background-color: #F58F7C;" text="Gérer mon stage" textFill="#4f4f51">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Pane fx:id="pane" layoutX="-1.0" layoutY="44.0" prefHeight="559.0" prefWidth="565.0" style="-fx-background-color: #D6D6D6;">
+                           <children>
+                              <Label layoutX="135.0" layoutY="115.0" prefHeight="23.0" prefWidth="122.0" text="Nom Stage:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="135.0" layoutY="395.0" text="Budget:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="retour1" layoutX="335.0" layoutY="462.0" mnemonicParsing="false" onAction="#handleActionButton" prefHeight="38.0" prefWidth="187.0" style="-fx-background-color: #f58f7c;" text="Gérer les stagiaires" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="135.0" layoutY="255.0" text="Département:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="135.0" layoutY="185.0" text="Encadrant:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="135.0" layoutY="325.0" prefHeight="27.0" prefWidth="155.0" text="Avancement:">
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="stageLabel" layoutX="278.0" layoutY="115.0" prefHeight="27.0" prefWidth="228.0" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="encaLabel" layoutX="278.0" layoutY="182.0" prefHeight="32.0" prefWidth="233.0" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="avancLabel" layoutX="278.0" layoutY="318.0" prefHeight="32.0" prefWidth="252.0" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="budgetLabel" layoutX="278.0" layoutY="390.0" prefHeight="32.0" prefWidth="249.0" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="deptLabel" layoutX="278.0" layoutY="249.0" prefHeight="32.0" prefWidth="253.0" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="213.0" layoutY="48.0" prefHeight="33.0" prefWidth="191.0" text="Mon Stage" textFill="#4f4f51">
+                                 <font>
+                                    <Font name="Arial" size="29.0" />
                                  </font>
                               </Label>
                            </children>
