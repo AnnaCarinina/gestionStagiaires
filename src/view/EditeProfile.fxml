@@ -120,7 +120,7 @@
                               <Font name="System Bold Italic" size="39.0" />
                            </font>
                         </Label>
-                        <Button fx:id="gerer" layoutX="249.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="231.0" style="-fx-background-color: #F58F7C;" text="Gérer les Stages" textFill="WHITE">
+                        <Button fx:id="gerer" layoutX="249.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="231.0" style="-fx-background-color: #F58F7C;" text="Gérer mon Stage" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
